@@ -1,7 +1,7 @@
 export LOCATION=us-central1
-export PROJECT_ID=$(gcloud config list project --format "value(core.project)")
+export PROJECT_ID=astute-ace-336608
 export REPO_NAME=vertex-r
 export IMAGE_NAME=vertex-r
 export IMAGE_TAG=latest
 export IMAGE_URI=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${IMAGE_NAME}:${IMAGE_TAG}
-export BUCKET=vertex-r-${RANDOM}
+export BUCKET=vertex-r-demo342
