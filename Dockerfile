@@ -1,7 +1,8 @@
-FROM rocker/r-ver:4.1.3
+FROM rocker/tidyverse:4.1
 WORKDIR /root
 
 COPY train.R /root/train.R
+COPY serve.R /root/serve.R
 
 # Install the Google Cloud SDK
 RUN apt-get update
@@ -13,4 +14,4 @@ RUN apt-get update && apt-get install google-cloud-cli
 # Install R packages
 RUN Rscript -e "install.packages('randomForest', repos = 'http://cran.us.r-project.org')"
 
-ENTRYPOINT ["Rscript", "/root/train.R"]
+#ENTRYPOINT ["Rscript", "/root/train.R"]

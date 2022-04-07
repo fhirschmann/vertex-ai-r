@@ -25,6 +25,8 @@ dataset <- aiplatform$TabularDataset$create(
 job <- aiplatform$CustomContainerTrainingJob(
     display_name="vertex-r",
     container_uri=image_uri,
+    command=c("Rscript", "train.R"),
+    model_serving_container_command=c("Rscript", "serve.R"),
     model_serving_container_image_uri=image_uri
 )
 
@@ -34,3 +36,15 @@ model <- job$run(
     machine_type="n1-standard-4"
 
 )
+
+print(model$display_name)
+print(model$resource_name)
+print(model$uri)
+
+endpoint <- aiplatform$Endpoint$create(
+    display_name="Boston Housing Endpoint",
+    project=project_id,
+    location=location
+)
+
+model$deploy(endpoint=endpoint, machine_type="n1-standard-4")
