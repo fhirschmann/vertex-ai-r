@@ -5,10 +5,6 @@ library(randomForest)
 
 Sys.getenv()
 
-gscopy <- function(src_url, dst_url) {
-    system2("gsutil", c("cp", src_url, dst_url))
-}
-
 project_id <- Sys.getenv("CLOUD_ML_PROJECT_ID")
 job_spec <- Sys.getenv("CLOUD_MD_JOB")
 location <- Sys.getenv("CLOUD_ML_REGION")
