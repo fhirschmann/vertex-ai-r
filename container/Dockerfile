@@ -13,6 +13,7 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN apt-get update && apt-get install google-cloud-cli
 
 # Install R packages
-RUN Rscript -e "install.packages('randomForest', repos = 'http://cran.us.r-project.org')"
+RUN install2.r --error plumber
+RUN install2.r --error randomForest
 
-#ENTRYPOINT ["Rscript", "/root/train.R"]
+EXPOSE 8080
