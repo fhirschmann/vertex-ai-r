@@ -1,6 +1,9 @@
 #!/usr/bin/env Rscript
 Sys.getenv()
+system("du -a /")
 library(plumber)
 
-pr <- plumber::plumb("/root/api.R")
-pr$run(host='0.0.0.0', port=8080)
+system2("gsutil", c("cp", "-r", Sys.getenv("AIP_STORAGE_URI"), "."))
+
+pr <- plumber::plumb("api.R")
+pr$run(host='0.0.0.0', port=as.numeric(Sys.getenv("AIP_HTTP_PORT")))

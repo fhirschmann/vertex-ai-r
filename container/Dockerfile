@@ -15,5 +15,6 @@ RUN apt-get update && apt-get install google-cloud-cli
 # Install R packages
 RUN install2.r --error plumber
 RUN install2.r --error randomForest
+RUN install2.r --error jsonlite
 
 EXPOSE 8080

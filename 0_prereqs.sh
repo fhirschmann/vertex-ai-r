@@ -10,3 +10,4 @@ gcloud artifacts repositories create vertex-r \
 gcloud auth configure-docker ${LOCATION}-docker.pkg.dev
 
 gsutil mb -l ${LOCATION} gs://${BUCKET}
+ 
