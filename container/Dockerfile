@@ -3,7 +3,6 @@ WORKDIR /root
 
 COPY train.R /root/train.R
 COPY serve.R /root/serve.R
-COPY api.R /root/api.R
 
 # Install the Google Cloud SDK
 RUN apt-get update
