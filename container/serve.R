@@ -1,6 +1,5 @@
 #!/usr/bin/env Rscript
 Sys.getenv()
-system("du -a /")
 library(plumber)
 
 system2("gsutil", c("cp", "-r", Sys.getenv("AIP_STORAGE_URI"), "."))

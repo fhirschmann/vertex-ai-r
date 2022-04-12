@@ -52,3 +52,11 @@ model$deploy(endpoint=endpoint, machine_type="n1-standard-4")
 library(jsonlite)
 examples <- toJSON(head(Boston))
 write(examples, "examples.json")
+
+cleanup <- function() {
+    endpoint$undeploy_all()
+    endpoint$delete()
+    dataset$delete()
+    model$delete()
+    job$delete()
+}

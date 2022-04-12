@@ -5,6 +5,8 @@ This repository contains example code deploy R models to Vertex AI.
 To reproduce, edit ``vars`` and execute:
 
 ```bash
+source vars
+
 bash 0_prereqs.sh
 bash 1_build.sh
 Rscript 2_train.R

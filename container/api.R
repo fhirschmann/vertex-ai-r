@@ -13,12 +13,14 @@ function(req) {
 
 #* Vertex Predict Route
 #* @post /v1/endpoints/<endpoint>/deployedModels/<model>:predict
+#* @serializer json
 function(req) {
+    print(req)
     body <- fromJSON(req$postBody)
  
     df <- body$instances
-    print(df)
     preds <- predict(rf, df)
-    print(preds)
+
     return(list(predictions=preds))
+    #return(list(predictions=c(1, 2, 3)))
 }
