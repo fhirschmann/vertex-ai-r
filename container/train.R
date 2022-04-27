@@ -23,7 +23,7 @@ test_df <- list.files("validation", full.names = TRUE) %>% map_df(~fread(.))
 
 print(training_df)
 
-rf <- randomForest(medv ~ ., data=training_df, ntree=100)
+rf <- randomForest(medianHouseValue ~ ., data=training_df, ntree=100)
 rf
 
 saveRDS(rf, "rf.rds")
