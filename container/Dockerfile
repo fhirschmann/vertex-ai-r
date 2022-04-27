@@ -1,3 +1,4 @@
+# filename: Dockerfile - container specifications for using R in Vertex AI
 FROM rocker/tidyverse:4.1
 WORKDIR /root
 
