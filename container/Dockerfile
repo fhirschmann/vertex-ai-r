@@ -1,20 +1,17 @@
 # filename: Dockerfile - container specifications for using R in Vertex AI
-FROM rocker/tidyverse:4.1
+FROM gcr.io/deeplearning-platform-release/r-cpu.4-1:latest
+
 WORKDIR /root
 
 COPY train.R /root/train.R
 COPY serve.R /root/serve.R
 
-# Install the Google Cloud SDK
+# Install Fortran
 RUN apt-get update
-RUN apt-get install -yy curl apt-transport-https ca-certificates gnupg
-RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-RUN apt-get update && apt-get install google-cloud-cli
+RUN apt-get install gfortran -yy
 
 # Install R packages
-RUN install2.r --error plumber
-RUN install2.r --error randomForest
-RUN install2.r --error jsonlite
+RUN Rscript -e "install.packages('plumber')"
+RUN Rscript -e "install.packages('randomForest')"
 
 EXPOSE 8080
