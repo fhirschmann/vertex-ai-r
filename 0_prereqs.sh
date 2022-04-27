@@ -3,7 +3,7 @@ source vars
 
 gcloud services enable artifactregistry.googleapis.com
 
-gcloud artifacts repositories create vertex-r \
+gcloud artifacts repositories create ${REPO_NAME} \
     --repository-format=docker \
     --location=${LOCATION}
 
