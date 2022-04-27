@@ -1,7 +1,20 @@
+# Google Cloud location we are working in
 export LOCATION=us-central1
+
+# ID of an existing Google Cloud project
 export PROJECT_ID=astute-ace-336608
+
+# Name of the artifact repository hosting the Docker container
 export REPO_NAME=vertex-r
+
+# Name of the Docker image
 export IMAGE_NAME=vertex-r
+
+# Docker Image Tag to use
 export IMAGE_TAG=latest
+
+# Full URI of the Docker image
 export IMAGE_URI=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${IMAGE_NAME}:${IMAGE_TAG}
+
+# Google Cloud Bucket to store model artifacts in
 export BUCKET=vertex-r-demo342
