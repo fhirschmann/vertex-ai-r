@@ -1,8 +1,8 @@
 #!/usr/bin/env Rscript
+# filename: train.R - train a Random Forest model on Vertex AI Managed Dataset
 library(tidyverse)
 library(data.table)
 library(randomForest)
-
 Sys.getenv()
 
 project_id <- Sys.getenv("CLOUD_ML_PROJECT_ID")
@@ -25,8 +25,6 @@ print(training_df)
 
 rf <- randomForest(medv ~ ., data=training_df, ntree=100)
 rf
-importance(rf)
-
 
 saveRDS(rf, "rf.rds")
 system2("gsutil", c("cp", "rf.rds", model_dir))
