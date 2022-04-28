@@ -1,13 +1,3 @@
 # Deploy R Models to Vertex AI using custom containers
 
-This repository contains example code deploy R models to Vertex AI.
-
-To reproduce, edit ``vars`` and execute:
-
-```bash
-source vars
-
-bash 0_prereqs.sh
-bash 1_build.sh
-Rscript 2_train.R
-```
+Please see `r_models_on_vertex_ai.ipynb`.
